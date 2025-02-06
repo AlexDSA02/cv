@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        lineOrange: 'linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(246,184,70,1) 50%, rgba(34,34,34,1) 100%);',
+      },
       height: {
         TrP: "30%",
       },

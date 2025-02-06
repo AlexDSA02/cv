@@ -1,7 +1,7 @@
 <template>
   <div class="w-screen h-screen flex justify-evenly bg-black py-3">
     <!--<div class="transition-all rotate-45 h-screen w-24 bg-gradient-to-r from-yellow-500 to-pink-500 absolute z-10 animate-slide left-0 brightness-150 mix-blend-overlay"></div>-->
-    <image-home-menu v-for="(page, index) in pages" :key="index" :text="page" />
+    <image-home-menu v-for="(page, index) in pages" :key="index" :text="page" picture="./assets/diplome.png"/>
   </div>
 </template>
 

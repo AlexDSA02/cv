@@ -2,9 +2,10 @@
   <div class="w-screen h-full flex justify-center bg-backgroundDarker">
     <Header />
     <div class="h-full w-[75%] bg-backgroundDark pt-[75px] flex items-center h-fit flex-col self-center pb-14">
-      <div class="border-b border-orange h-fit w-full flex items-center">
-        <p class="w-full font-bold overflow-hidden text-center h-fit tracking-wide mb-6 text-[30px]">Experiences</p>
+      <div class="h-fit w-full flex items-center">
+        <p class="w-full font-bold overflow-hidden text-center h-fit tracking-wide mb-3 text-[30px]">EXPERIENCES</p>
       </div>
+      <div class="bg-lineOrange w-full h-[0.1rem]"></div>
       <div v-for="(experience, index) in Experiences" :key="index" class="flex flex-col items-center">
         <ExperienceDiv :date="experience.date" :jobName="experience.jobName" :companyName="experience.companyName"
                    :location="experience.location" :description="experience.description"/>
