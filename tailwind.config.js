@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         lineOrange: 'linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(246,184,70,1) 50%, rgba(34,34,34,1) 100%);',
+        linearBackgroundDarker: 'linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(255,200,100,1) 50%, rgba(20,20,20,1) 100%);',
       },
       height: {
         TrP: "30%",

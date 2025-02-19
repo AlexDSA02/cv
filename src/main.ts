@@ -1,8 +1,13 @@
-import { createApp } from 'vue'
-import App from '@/App.vue'
-import router from './router' // Import du router
-import './style.css'; // ou le fichier CSS où tu as les directives Tailwind
+import { createApp } from 'vue';
+import App from '@/App.vue';
+import router from './router';
+import './style.css';
 
-const app = createApp(App)
-app.use(router) // Utilisation du router
-app.mount('#app')
+import Particles from "vue3-particles";
+
+const app = createApp(App);
+
+app.use(router);
+app.use(Particles); // Utiliser le plugin correctement
+
+app.mount('#app'); // Monter l'application à la fin

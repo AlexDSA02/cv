@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[19.4vw] h-full flex flex-col overflow-hidden group relative hover:cursor-pointer z-20 hover:z-0">
+  <div class="w-[24.5vw] h-full flex flex-col overflow-hidden group relative hover:cursor-pointer z-20 hover:z-0">
     <img class="h-full w-full object-cover transition-all duration-500
      ease-in-out group-hover:-translate-y-2 absolute  filter grayscale hover:grayscale-0"
          :src="picture">

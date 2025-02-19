@@ -9,11 +9,14 @@ export const skills = [
     { name: "SCSS", stars: 5, category: "Frontend" },
     { name: "ThreeJS", stars: 2, category: "Frontend" },
     { name: "React", stars: 3, category: "Frontend" },
+    { name: "Tailwind", stars: 4, category: "Frontend" },
 
     // Backend
     { name: "Java", stars: 4, category: "Backend" },
     { name: "Spring Boot", stars: 4, category: "Backend" },
+    { name: "NestJS", stars: 4, category: "Backend" },
     { name: "Maven", stars: 4, category: "Backend" },
+    { name: "WebSockets", stars: 4, category: "Backend" },
     { name: "RESTful APIs", stars: 5, category: "Backend" },
     { name: "Node JS", stars: 4, category: "Backend" },
     { name: "Micro Services", stars: 5, category: "Backend" },
@@ -21,7 +24,11 @@ export const skills = [
 
     // Database
     { name: "SQL", stars: 4, category: "Database" },
-    { name: "MongoDB", stars: 4, category: "Database" },
+    { name: "Replication & Backups", stars: 4, category: "Database" },
+    { name: "Prisma", stars: 4, category: "Database" },
+    { name: "MongoDB", stars: 3, category: "Database" },
+    { name: "MariaDB", stars: 2, category: "Database" },
+    { name: "PostgreSQL", stars: 4, category: "Database" },
 
     // Tools
     { name: "npm", stars: 5, category: "Tools" },
@@ -43,8 +50,11 @@ export const skills = [
     { name: "Puppeteer", stars: 3, category: "Tools" },
 
     // Methodologies
-    { name: "Agile", stars: 5, category: "Methodologies" },
-    { name: "Scrum", stars: 5, category: "Methodologies" },
-    { name: "Mockito", stars: 3, category: "Methodologies" },
-    { name: "JUnit", stars: 4, category: "Methodologies" }
+    { name: "Agile", stars: 5, category: "Methodology" },
+    { name: "Scrum", stars: 5, category: "Methodology" },
+    { name: "Mockito", stars: 2, category: "Methodology" },
+    { name: "JUnit", stars: 4, category: "Methodology" },
+    { name: "Integration Testing", stars: 5, category: "Methodology" },
+    { name: "Mocking", stars: 4, category: "Methodology" },
+    { name: "Clean Code", stars: 5, category: "Methodology" }
 ];
