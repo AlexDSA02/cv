@@ -1,25 +1,34 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
 // Import des pages
-import Home from '@/views/Home.vue'
-import Home2 from '@/views/Home2.vue'
+import Home from '@/views/Home.vue';
+import Home2 from '@/views/Home2.vue';
 import Skills from "@/views/Skills.vue";
 import Degrees from "@/views/Degrees.vue";
 import Experiences from "@/views/Experiences.vue";
 import About from "@/views/About.vue";
 
 const routes = [
-    { path: '/home', name: 'Home', component: Home }, // Route pour la page d'accueil
-    { path: '/', name: 'Home2', component: Home2 }, // Route pour la page d'accueil
-    { path: '/skills', name: 'Skills', component: Skills }, // Route pour la page d'accueil
-    { path: '/degrees', name: 'Degrees', component: Degrees }, // Route pour la page d'accueil
-    { path: '/experiences', name: 'Experiences', component: Experiences }, // Route pour la page d'accueil
-    { path: '/about', name: 'About', component: About }, // Route pour la page d'accueil
-]
+    { path: '/home', name: 'Home', component: Home },
+    { path: '/', name: 'Home2', component: Home2 },
+    { path: '/skills', name: 'Skills', component: Skills },
+    { path: '/degrees', name: 'Degrees', component: Degrees },
+    { path: '/experiences', name: 'Experiences', component: Experiences },
+    { path: '/about', name: 'About', component: About },
+];
 
 const router = createRouter({
     history: createWebHistory(), // Utilise l'historique de navigation HTML5
     routes, // Définis les routes
-})
+    scrollBehavior(to, from, savedPosition) {
+        // Si on a une position sauvegardée (ex: retour arrière), on la restaure
+        if (savedPosition) {
+            return savedPosition;
+        } else {
+            // Sinon, on remonte tout en haut de la page avec un scroll fluide
+            return { top: 0, behavior: 'smooth' };
+        }
+    }
+});
 
-export default router
+export default router;
