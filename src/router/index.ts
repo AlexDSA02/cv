@@ -20,7 +20,7 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(), // Utilise l'historique de navigation HTML5
     routes, // Définis les routes
-    scrollBehavior(to, from, savedPosition) {
+    scrollBehavior(_to, _from, savedPosition) {
         // Si on a une position sauvegardée (ex: retour arrière), on la restaure
         if (savedPosition) {
             return savedPosition;
