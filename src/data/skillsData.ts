@@ -38,6 +38,7 @@ export const skills = [
     { name: "Webpack", stars: 4, category: "Tools" },
     { name: "ESLint", stars: 5, category: "Tools" },
     { name: "Prettier", stars: 5, category: "Tools" },
+    { name: "Figma", stars: 4, category: "Tools" },
     { name: "CI/CD", stars: 4, category: "Tools" },
     { name: "Code review", stars: 5, category: "Tools" },
     { name: "DataDog", stars: 4, category: "Tools" },

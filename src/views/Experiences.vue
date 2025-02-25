@@ -17,7 +17,7 @@
            class="flex flex-col items-center animate-slide-up"
            :style="{ animationDelay: `${index * 0.5}s` }">
         <ExperienceDiv :date="experience.date" :jobName="experience.jobName" :companyName="experience.companyName"
-                       :location="experience.location" :description="experience.description"/>
+                       :location="experience.location" :company-description="experience.companyDescription" :description="experience.description"/>
         <div v-if="index !== Experiences.length - 1" class="ligne-vertical h-28 w-[0.1rem] bg-lineOrange my-6" />
       </div>
     </div>

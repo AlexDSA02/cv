@@ -7,6 +7,7 @@ import Skills from "@/views/Skills.vue";
 import Degrees from "@/views/Degrees.vue";
 import Experiences from "@/views/Experiences.vue";
 import About from "@/views/About.vue";
+import Test from "@/views/Test.vue";
 
 const routes = [
     { path: '/home', name: 'Home', component: Home },
@@ -15,6 +16,7 @@ const routes = [
     { path: '/degrees', name: 'Degrees', component: Degrees },
     { path: '/experiences', name: 'Experiences', component: Experiences },
     { path: '/about', name: 'About', component: About },
+    { path: '/test', name: 'Test', component: Test },
 ];
 
 const router = createRouter({

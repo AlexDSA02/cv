@@ -1,76 +1,105 @@
 <template>
   <div class="flex flex-col gap-5 items-center w-full">
-    <p class="text-center tracking-wider font-bold overflow-hidden border px-3 rounded-md w-fit mt-6 text-orange border-orange">{{ date }}</p>
-    <p class="text-center tracking-wider w-full font-bold overflow-hidden">{{ companyName }}</p>
-    <p class="text-center tracking-wider w-full font-bold overflow-hidden text-textDark">{{ location }}</p>
-    <p class="text-center tracking-wider  w-[70%] font-bold overflow-hidden text-textDark">{{ jobName }}</p>
-    <!--<button @click="openLayer" class="w-[50%] text-center tracking-wider w-full font-bold overflow-hidden text-orange
-    bg-backgroundDarker hover:bg-orange hover:text-backgroundDarker hidden md:block">See more</button>
+    <p class="text-center tracking-wider font-bold overflow-hidden border px-3 rounded-md w-fit mt-6 text-orange border-orange">
+      {{ date }}
+    </p>
+    <p class="text-center tracking-wider w-full font-bold overflow-hidden">
+      {{ companyName }}
+    </p>
+    <p class="text-center tracking-wider w-full font-bold overflow-hidden text-textDark">
+      {{ location }}
+    </p>
+    <p class="text-center tracking-wider w-[70%] font-bold overflow-hidden text-textDark">
+      {{ jobName }}
+    </p>
 
-    <div v-if="layerOpen" class="fixed inset-0 flex items-center justify-center z-50">
-      <div @click="closeLayer" class="absolute inset-0 bg-black opacity-50"></div>
+    <!-- Bouton "Voir plus" / "Voir moins" -->
+    <button
+        v-if="!showDetails"
+        @click="toggleDetails"
+        class="hidden md:flex mt-2 px-6 py-2 bg-orange text-backgroundDarker font-bold rounded-lg hover:bg-orange-dark transition-all duration-300 transform hover:scale-105"
+    >
+      Voir plus
+    </button>
+    <button
+        v-if="showDetails"
+        @click="toggleDetails"
+        class="hidden md:flex mt-2 px-6 py-2 bg-orange text-backgroundDarker font-bold rounded-lg hover:bg-orange-dark transition-all duration-300 transform hover:scale-105"
+    >
+      Voir moins
+    </button>
 
-      <div v-if="layerOpen" :style="{ top: `${modalTop}px` }"
-           class="fixed left-1/2 transform -translate-x-1/2 z-50 w-[80vw] md:w-[50vw] lg:w-[40vw]
-             bg-backgroundDarker text-textDark p-6 rounded-lg shadow-lg border border-orange">
-        <button @click="closeLayer" class="absolute top-3 right-3 text-orange font-bold text-xl">✕</button>
-        <p class="text-center tracking-wider w-full font-bold overflow-hidden">{{ description }}</p>
+    <!-- Modale avec transition -->
+    <transition name="modal">
+      <div v-if="showDetails" ref="modal" class="flex relative inset-0 z-50 w-[80vw] justify-center">
+        <div class="flex-col bg-backgroundDarker p-8 rounded-xl shadow-2xl w-[90%] max-w-2xl relative border border-orange flex">
+
+          <!-- En-tête avec titre centré -->
+          <div class="relative w-full mb-4">
+            <p class="text-orange text-lg font-bold text-center">
+              {{ companyDescription }}
+            </p>
+          </div>
+
+          <!-- Contenu de la modale -->
+          <p class="text-textDark text-lg leading-relaxed">
+            {{ description }}
+          </p>
+        </div>
       </div>
-    </div>-->
+    </transition>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   name: "ExperienceDiv",
-  components: {},
+  props: {
+    date: String,
+    companyName: String,
+    location: String,
+    jobName: String,
+    description: String,
+    companyDescription: String,
+  },
   data() {
     return {
-      modalTop: 0, // Position verticale de la modale
-      layerOpen: false,
-      scrollPosition: 0,
-    }
-  },
-  props: {
-    date: {
-      type: String,
-      required: true,
-    },
-    companyName: {
-      type: String,
-      required: true,
-    },
-    location: {
-      type: String,
-      required: true,
-    },
-    jobName: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-      required: true,
-    },
+      showDetails: false,
+    };
   },
   methods: {
-    openLayer() {
-      document.body.classList.add("overflow-hidden"); // Empêche le scroll de la page
-      this.scrollPosition = window.scrollY; // Stocke la position du scroll
-      this.modalTop = window.scrollY + window.innerHeight / 2; // Place la modale au centre de l'écran
-      this.layerOpen = true;
+    toggleDetails() {
+      this.showDetails = !this.showDetails;
+
+      // Attendre que le DOM soit mis à jour avant de scroller
+      this.$nextTick(() => {
+        if (this.showDetails && this.$refs.modal) {
+          this.$refs.modal.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      });
     },
-    closeLayer() {
-      console.log('TOTO')
-      document.body.classList.remove("overflow-hidden"); // Réactive le scroll de la page
-      this.layerOpen = false;
-    }
-  }
+  },
 };
 </script>
-
 <style scoped>
-body.overflow-hidden {
-  overflow: hidden;
+/* Animation pour la modale */
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* Styles pour le bouton */
+button {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 </style>
