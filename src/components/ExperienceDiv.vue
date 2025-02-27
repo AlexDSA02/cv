@@ -19,14 +19,14 @@
         @click="toggleDetails"
         class="hidden md:flex mt-2 px-6 py-2 bg-orange text-backgroundDarker font-bold rounded-lg hover:bg-orange-dark transition-all duration-300 transform hover:scale-105"
     >
-      Voir plus
+      See more
     </button>
     <button
         v-if="showDetails"
         @click="toggleDetails"
         class="hidden md:flex mt-2 px-6 py-2 bg-orange text-backgroundDarker font-bold rounded-lg hover:bg-orange-dark transition-all duration-300 transform hover:scale-105"
     >
-      Voir moins
+      See less
     </button>
 
     <!-- Modale avec transition -->
